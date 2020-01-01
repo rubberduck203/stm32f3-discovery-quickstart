@@ -16,8 +16,6 @@
             "preLaunchTask": "build",
             "runToMain": true,
             "executable": "./target/thumbv7em-none-eabihf/debug/{{project-name}}",
-            /* Run `cargo build --example itm` and uncomment this line to run itm example */
-            // "executable": "./target/thumbv7em-none-eabihf/debug/examples/itm",
             "device": "STM32F303VCT6",
             "configFiles": [
                 "interface/stlink-v2-1.cfg",
