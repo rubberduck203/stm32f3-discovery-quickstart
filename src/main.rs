@@ -11,7 +11,8 @@ use cortex_m::asm;
 use cortex_m_rt::entry;
 
 #[allow(unused_imports)] // Need to link the device crate to compile correctly
-use stm32f3::stm32f303::{NVIC};
+use stm32f3xx_hal::prelude::*;
+// use stm32f3xx_hal::stm32;
 
 #[entry]
 fn main() -> ! {

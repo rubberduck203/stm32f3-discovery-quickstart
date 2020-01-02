@@ -18,9 +18,9 @@ panic-halt = "0.2.0"
 # alloc-cortex-m = "0.3.5"
 
 # For the stm32f303vc mcu
-[dependencies.stm32f3]
-features = ["stm32f303", "rt"]
-version = "0.7.1"
+[dependencies.stm32f3xx-hal]
+features = ["stm32f303xc", "rt"]
+version = "0.4.0"
 
 # this lets you use `cargo fix`!
 [[bin]]
