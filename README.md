@@ -1,17 +1,15 @@
 # `stm32f3-discovery-quickstart`
 
-Template to develop bare metal Rust applications for the [STM32F3DISCOVERY][stm32f3discovery] board 
+Template to develop bare metal Rust applications for the [STM32F3DISCOVERY][stm32f3discovery] board.
+Utilizes the [stm32f3-discovery board support crate](https://crates.io/crates/stm32f3-discovery).
 
 ## Dependencies
 
 To build embedded programs using this template you'll need:
 
-- Rust 1.31, 1.30-beta, nightly-2018-09-13 or a newer toolchain. e.g. `rustup
-  default beta`
-
+- Rust 1.31 or a newer toolchain.
 - The `cargo generate` subcommand. [Installation
   instructions][cargo-generate-install].
-
 - `rust-std` components (pre-compiled `core` crate) for the ARM Cortex-M
   target.
 
@@ -35,6 +33,10 @@ $ cargo generate --git https://github.com/rubberduck203/stm32f3-discovery-quicks
 $ cd app
 $ cargo build
 ```
+
+## Examples
+
+For examples, see the [examples directory of the stm32f3-discovery repository](https://github.com/rubberduck203/stm32f3-discovery/tree/master/examples).
 
 ## VS Code
 
