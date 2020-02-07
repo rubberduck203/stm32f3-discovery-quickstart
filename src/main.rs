@@ -9,9 +9,11 @@ extern crate panic_halt; // you can put a breakpoint on `rust_begin_unwind` to c
 
 use cortex_m_rt::entry;
 
-use stm32f3xx_hal::prelude::*;
-use stm32f3xx_hal::stm32;
-use stm32f3xx_hal::delay::Delay;
+use stm32f3_discovery::stm32f3xx_hal::prelude::*;
+use stm32f3_discovery::stm32f3xx_hal::stm32;
+use stm32f3_discovery::stm32f3xx_hal::delay::Delay;
+
+use stm32f3_discovery::switch_hal::{ActiveHigh, OutputSwitch, ToggleableOutputSwitch, Switch};
 
 #[entry]
 fn main() -> ! {
@@ -20,11 +22,14 @@ fn main() -> ! {
     let mut reset_control_clock = device_periphs.RCC.constrain();
     let mut gpioe = device_periphs.GPIOE.split(&mut reset_control_clock.ahb);
 
-    let mut led = gpioe
-        .pe13
-        .into_push_pull_output(&mut gpioe.moder, &mut gpioe.otyper);
+    let mut led =
+        Switch::<_, ActiveHigh>::new(
+            gpioe
+            .pe13
+            .into_push_pull_output(&mut gpioe.moder, &mut gpioe.otyper)
+        );
 
-    led.set_low().unwrap();
+    led.off().unwrap();
 
     let core_periphs = cortex_m::Peripherals::take().unwrap();
     let mut flash = device_periphs.FLASH.constrain();
