@@ -36,7 +36,7 @@
             /* Launches debug session for currently open example */
             "type": "cortex-debug",
             "request": "launch",
-            "name": "Debug (OpenOCD)",
+            "name": "Debug Current Example (OpenOCD)",
             "servertype": "openocd",
             "cwd": "${workspaceRoot}",
             "preLaunchTask": "cargo build --examples",
