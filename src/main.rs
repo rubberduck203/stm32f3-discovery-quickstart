@@ -13,7 +13,7 @@ use stm32f3_discovery::stm32f3xx_hal::prelude::*;
 use stm32f3_discovery::stm32f3xx_hal::stm32;
 use stm32f3_discovery::stm32f3xx_hal::delay::Delay;
 
-use stm32f3_discovery::switch_hal::{ActiveHigh, OutputSwitch, ToggleableOutputSwitch, Switch};
+use stm32f3_discovery::switch_hal::{IntoSwitch, OutputSwitch, ToggleableOutputSwitch};
 
 #[entry]
 fn main() -> ! {
@@ -23,11 +23,10 @@ fn main() -> ! {
     let mut gpioe = device_periphs.GPIOE.split(&mut reset_control_clock.ahb);
 
     let mut led =
-        Switch::<_, ActiveHigh>::new(
             gpioe
             .pe13
             .into_push_pull_output(&mut gpioe.moder, &mut gpioe.otyper)
-        );
+            .into_active_high_switch();
 
     led.off().unwrap();
 
