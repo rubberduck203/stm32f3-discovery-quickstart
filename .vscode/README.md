@@ -18,9 +18,6 @@ Otherwise, you can use the Extensions view to search for and install them, or go
 
 ## Use
 
-_Note: When you open the project in the editor, you must open an `*.rs` file to trigger the Rust Language Server.
-Failure to do so will cause a failure to find the `build` task._
-
 The `Debug (OpenOCD)`: Starts a debug session for a `STM32F3DISCOVERY` board.
 It will use the default `.cargo/config` configuration to build the executable, upload it to the device, and start a debug session.
 
